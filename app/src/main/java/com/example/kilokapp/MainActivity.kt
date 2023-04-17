@@ -16,10 +16,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         // inicializamos cada uno de los botones.
-        IniciarUI()
+        //IniciarUI()
     }
 
-    private fun IniciarUI() {
+/*    private fun IniciarUI() {
 
         binding.botonIniciarSesion.setOnClickListener {
             val toast = Toast.makeText(applicationContext, "Iniciando sesion", Toast.LENGTH_SHORT)
@@ -38,5 +38,5 @@ class MainActivity : AppCompatActivity() {
             var intent = Intent(this, NewUserActivity::class.java);
             startActivity(intent);
         }
-    }
+    }*/
 }
