@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/itemEjercicios"
+        android:icon="@drawable/baseline_directions_bike_excercices"
+        android:title="Ejercicios" />
+    <item
+        android:id="@+id/itemRecetas"
+        android:icon="@drawable/baseline_emoji_food"
+        android:title="Recetas" />
+    <item
+        android:id="@+id/itemDiagnostico"
+        android:icon="@drawable/baseline_assignment_diagnostic"
+        android:title="Diagnostico" />
+</menu>

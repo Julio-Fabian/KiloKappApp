@@ -9,10 +9,46 @@
         android:id="@+id/fragmentIniciarSesion"
         android:name="com.example.kilokapp.FragmentIniciarSesion"
         android:label="fragment_iniciar_sesion"
-        tools:layout="@layout/fragment_iniciar_sesion" />
+        tools:layout="@layout/fragment_iniciar_sesion" >
+        <action
+            android:id="@+id/action_nuevo_usuario"
+            app:destination="@id/fragmentTipoUsuario"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@id/fragmentIniciarSesion" />
+        <action
+            android:id="@+id/action_go_home"
+            app:destination="@id/fragmentHome"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@id/fragmentIniciarSesion" />
+    </fragment>
     <fragment
         android:id="@+id/fragmentNuevoUsuario"
         android:name="com.example.kilokapp.FragmentNuevoUsuario"
         android:label="fragment_nuevo_usuario"
         tools:layout="@layout/fragment_nuevo_usuario" />
+    <fragment
+        android:id="@+id/fragmentTipoUsuario"
+        android:name="com.example.kilokapp.FragmentTipoUsuario"
+        android:label="fragment_tipo_usuario"
+        tools:layout="@layout/fragment_tipo_usuario" >
+        <action
+            android:id="@+id/next_action"
+            app:destination="@id/fragmentNuevoUsuario"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@id/fragmentIniciarSesion" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentHome"
+        android:name="com.example.kilokapp.home.FragmentHome"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
 </navigation>

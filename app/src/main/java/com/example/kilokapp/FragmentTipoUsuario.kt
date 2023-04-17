@@ -9,27 +9,31 @@ import android.widget.Toast
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.example.kilokapp.databinding.FragmentIniciarSesionBinding
-import com.example.kilokapp.databinding.FragmentNuevoUsuarioBinding
 import com.example.kilokapp.databinding.FragmentTipoUsuarioBinding
 
-class FragmentNuevoUsuario : Fragment() {
+
+class FragmentTipoUsuario : Fragment() {
 
     private lateinit var navController: NavController
-    private var _binding: FragmentNuevoUsuarioBinding? = null
+    private var _binding: FragmentTipoUsuarioBinding? = null
     private val binding get() = _binding!!
+
+    private var esNutriologo : Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        _binding = FragmentNuevoUsuarioBinding.inflate(inflater, container, false)
+        _binding = FragmentTipoUsuarioBinding.inflate(inflater, container, false)
         val view = binding.root
         return view
     }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -38,14 +42,19 @@ class FragmentNuevoUsuario : Fragment() {
         IniciarUI()
     }
 
+
     private fun IniciarUI() {
-        binding.botonCrearCuenta.setOnClickListener {
-            val toast = Toast.makeText(context, "Creando cuenta...", Toast.LENGTH_SHORT)
-            toast.show()
+        binding.btnNutriologo.setOnClickListener {
+            Toast.makeText(context, "Tipo Nutriologo [es nutriologo: $esNutriologo]", Toast.LENGTH_SHORT).show()
+
+
+            navController.navigate(R.id.next_action)
         }
 
-        binding.buttonRegresar.setOnClickListener {
-            navController.navigate(R.id.fragmentIniciarSesion)
+        binding.btnPaciente.setOnClickListener {
+            Toast.makeText(context, "Tipo Paciente [es nutriologo: $esNutriologo]", Toast.LENGTH_SHORT).show()
+
+            navController.navigate(R.id.next_action)
         }
     }
 }

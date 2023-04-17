@@ -13,4 +13,11 @@
     <color name="edit_text_border">#EEA300</color>
     <color name="edit_text_background">#f6fbff</color>
 
+
+
+    <color name="bottom_nav_background">#FEDBD0</color>
+    <color name="bottom_nav_item">#8C706D</color>
+    <color name="bottom_nav_selected_item">#220006</color>
+    <color name="fragment_bg_color">#FDF8F4</color>
+
 </resources>

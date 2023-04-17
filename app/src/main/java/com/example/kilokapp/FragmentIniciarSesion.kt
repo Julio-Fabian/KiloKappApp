@@ -7,12 +7,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import com.example.kilokapp.databinding.ActivityMainBinding
 import com.example.kilokapp.databinding.FragmentIniciarSesionBinding
 
 
 class FragmentIniciarSesion : Fragment() {
 
+    private lateinit var navController: NavController
     private var _binding: FragmentIniciarSesionBinding? = null
     private val binding get() = _binding!!
 
@@ -31,13 +34,14 @@ class FragmentIniciarSesion : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         // aqui se llama al codigo de la app.
+        navController = Navigation.findNavController(view) // metodo mas recomndable.
         IniciarUI()
     }
 
     private fun IniciarUI() {
 
         binding.botonIniciarSesion.setOnClickListener {
-
+            navController.navigate(R.id.action_go_home)
         }
 
         binding.textViewRecuperarPassword.setOnClickListener {
@@ -45,7 +49,7 @@ class FragmentIniciarSesion : Fragment() {
         }
 
         binding.textViewNuevaCuenta.setOnClickListener {
-
+            navController.navigate(R.id.action_nuevo_usuario)
         }
     }
 }
