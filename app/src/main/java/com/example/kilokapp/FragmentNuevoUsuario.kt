@@ -43,9 +43,5 @@ class FragmentNuevoUsuario : Fragment() {
             val toast = Toast.makeText(context, "Creando cuenta...", Toast.LENGTH_SHORT)
             toast.show()
         }
-
-        binding.buttonRegresar.setOnClickListener {
-            navController.navigate(R.id.fragmentIniciarSesion)
-        }
     }
 }
