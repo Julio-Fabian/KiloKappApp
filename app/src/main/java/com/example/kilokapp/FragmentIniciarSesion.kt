@@ -64,6 +64,8 @@ class FragmentIniciarSesion : Fragment() {
 
     private fun IniciarUI() {
 
+        verificarSesionIniciada()
+
         binding.botonIniciarSesion.setOnClickListener {
 
             var user : String = binding.editTextUsuario.text.toString()
