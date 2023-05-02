@@ -31,7 +31,12 @@
         android:id="@+id/fragmentNuevoUsuario"
         android:name="com.example.kilokapp.FragmentNuevoUsuario"
         android:label="fragment_nuevo_usuario"
-        tools:layout="@layout/fragment_nuevo_usuario" />
+        tools:layout="@layout/fragment_nuevo_usuario" >
+        <argument
+            android:name="esNutriologo"
+            app:argType="boolean"
+            android:defaultValue="false" />
+    </fragment>
     <fragment
         android:id="@+id/fragmentTipoUsuario"
         android:name="com.example.kilokapp.FragmentTipoUsuario"

@@ -45,16 +45,16 @@ class FragmentTipoUsuario : Fragment() {
 
     private fun IniciarUI() {
         binding.btnNutriologo.setOnClickListener {
-            Toast.makeText(context, "Tipo Nutriologo [es nutriologo: $esNutriologo]", Toast.LENGTH_SHORT).show()
+            esNutriologo = true // activamos check.
 
-
-            navController.navigate(R.id.next_action)
+            val action = FragmentTipoUsuarioDirections.nextAction(esNutriologo)
+            navController.navigate(action)
         }
 
         binding.btnPaciente.setOnClickListener {
-            Toast.makeText(context, "Tipo Paciente [es nutriologo: $esNutriologo]", Toast.LENGTH_SHORT).show()
 
-            navController.navigate(R.id.next_action)
+            val action = FragmentTipoUsuarioDirections.nextAction(esNutriologo)
+            navController.navigate(action)
         }
     }
 }

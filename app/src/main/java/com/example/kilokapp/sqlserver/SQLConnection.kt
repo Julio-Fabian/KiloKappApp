@@ -9,7 +9,7 @@ import java.sql.SQLException
 class SQLConnection {
     private val ip = "192.168.1.8" // localhost sql server IP @Fabian_PC
     private val port = "1433" // default port in SQL Server (Verify this)
-    private val dataBase = "TestLogin" // database name
+    private val dataBase = "KiloKappDB" // database name
     private val userDb = "sa"; // system administrator user
     private val password = "sa1922342"
 

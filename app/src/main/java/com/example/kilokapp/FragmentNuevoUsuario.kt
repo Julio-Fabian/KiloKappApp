@@ -11,6 +11,7 @@ import androidx.navigation.Navigation
 import com.example.kilokapp.databinding.FragmentIniciarSesionBinding
 import com.example.kilokapp.databinding.FragmentNuevoUsuarioBinding
 import com.example.kilokapp.databinding.FragmentTipoUsuarioBinding
+import com.example.sqlserverprototipe02.sql.SQLAcctions
 
 class FragmentNuevoUsuario : Fragment() {
 
@@ -18,9 +19,10 @@ class FragmentNuevoUsuario : Fragment() {
     private var _binding: FragmentNuevoUsuarioBinding? = null
     private val binding get() = _binding!!
 
+    var esNutriologo : Boolean = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -36,12 +38,40 @@ class FragmentNuevoUsuario : Fragment() {
 
         navController = Navigation.findNavController(view) // metodo mas recomndable.
         IniciarUI()
+
+        binding.botonCrearCuenta.setOnClickListener {
+            var user : String = binding.editTextUsuario.text.toString()
+            var pass : String = binding.editTextPassword.text.toString()
+            var pass2 : String = binding.editTextConfirmarPassword.text.toString()
+
+            var esValido = validarCampos(user, pass, pass2)
+
+            if (esValido) {
+                val sesion = SQLAcctions()
+                val respuesta : Boolean = sesion.crearUsuario(user, pass, esNutriologo)
+
+                if (respuesta) {
+                    Toast.makeText(context, "Usuario creado correctamente.", Toast.LENGTH_SHORT).show()
+                }
+                else {
+                    Toast.makeText(context, "Error al crear usuario.", Toast.LENGTH_SHORT).show()
+                }
+            }
+            else {
+                Toast.makeText(context, "ERROR: Las contraseñas no son iguales.", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    fun validarCampos(usuario: String, p1: String, p2: String) : Boolean {
+
+        if (!p1.equals(p2))
+            return false
+
+        return true
     }
 
     private fun IniciarUI() {
-        binding.botonCrearCuenta.setOnClickListener {
-            val toast = Toast.makeText(context, "Creando cuenta...", Toast.LENGTH_SHORT)
-            toast.show()
-        }
+        esNutriologo = FragmentNuevoUsuarioArgs.fromBundle(requireArguments()).esNutriologo
     }
 }

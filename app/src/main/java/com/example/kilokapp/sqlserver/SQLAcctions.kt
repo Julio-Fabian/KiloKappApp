@@ -8,14 +8,14 @@ class SQLAcctions {
 
     val table = "usuario"
 
-    fun crearUsuario(nombre: String, contrasena: String, esNutriologo: Boolean) : Boolean {
+    fun crearUsuario(user: String, contrasena: String, esNutriologo: Boolean) : Boolean {
 
         try {
             val server = SQLConnection()
             val connection = server.obtenerConexion()
 
             if (connection != null) {
-                val query = "INSERT INTO ${table} VALUES ('${nombre}', '${contrasena}', '${esNutriologo})"
+                val query = "INSERT INTO ${table} VALUES ('${user}', '${contrasena}', '${esNutriologo}')"
 
                 val st : Statement = connection.createStatement()
                 val rs : Boolean = st.execute(query);
